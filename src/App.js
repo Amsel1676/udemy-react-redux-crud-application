@@ -1,11 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    const greeting = "Hi, Tom!";
-    const dom = <h1 className="foo">{greeting}</h1>;
-    return dom;
-  }
+const App = () => {
+  const profiles = [
+    { name: "Taro", age: 10 },
+    { name: "Hanako", age: 5}
+  ]
+  return (
+    <div>
+      {
+        profiles.map((profile, index) => {
+          return <User name={profile.name} age={profile.age} key={index}/>
+        })
+      }
+    </div>
+  )
+}
+
+const User = (props) => {
+  return <div>Hi, I am {props.name}, and {props.age} years old!</div>
 }
 
 export default App;
